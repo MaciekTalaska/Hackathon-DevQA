@@ -22,6 +22,19 @@ function logToApplication(test) {
 }
 
 module.exports = {
+  '0000269 - after 3 failed login attempts captcha should be shown': function(test) {
+    test
+      .open(param.url)
+      .click('#login')
+      .waitForElement('.login_form_error')
+      .click('#login')
+      .waitForElement('#login')
+      .click('#login')
+      .waitForElement('#captcha-input')
+      .assert.exists('#captcha-input')
+      .done();
+  },
+
   '0000290 - Password recovery page should allow user to ': function(test) {
     test
       .open(param.url + 'odzyskaj_haslo')
@@ -40,7 +53,7 @@ module.exports = {
   //  logToApplication(test)
   //    .waitForElement('#head-top')
   //    .assert
-  //        .cookie("FrameProfile", "httpOnly")  
+  //        .cookie("FrameProfile", "httpOnly")
   //        //.exists('.header_admin')
   //    .done();
   //},
@@ -50,7 +63,7 @@ module.exports = {
       .open(param.url)
       .click('#login')
       .waitForElement('.login_form_error')
-      .assert.numberOfElements('.login_form_error', 2) 
+      .assert.numberOfElements('.login_form_error', 2)
       .done();
   },
 
