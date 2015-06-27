@@ -5,9 +5,9 @@ var testarena = {
 };
 
 var mrbuggy = {
-  url: "http://demo.testarena.pl/",
-  login: "administrator@testarena.pl",
-  pass: ""
+  url: "http://demo.mrbuggy2.testarena.pl/",
+  login: "admin@tc2014.pl",
+  pass: "12qwAS"
 };
 
 var param = testarena;
@@ -24,14 +24,14 @@ function logToApplication(test) {
 module.exports = {
   '	0000290 - Password recovery page should allow user to ': function(test) {
     test
-      .open('http://demo.testarena.pl/odzyskaj_haslo')
-      .assert.attr('.remember_check > a', 'href', 'http://demo.testarena.pl/zaloguj')
+      .open(param.url + 'odzyskaj_haslo')
+      .assert.attr('.remember_check > a', 'href', param.url + 'zaloguj')
       .done();
   },
 
   '	0000272 - 404 page should exist ': function(test) {
     test
-      .open('http://demo.testarena.pl/zalogujABCD')
+      .open(param.url + 'zalogujABCD')
       .assert.exists('h1.pagenotfound_title', '404 page should exist')
       .done();
   },
@@ -43,7 +43,7 @@ module.exports = {
   },
   '	0000260 - when no login data was provided no incorrect data message should be visible': function(test) {
     test
-        .open('http://demo.testarena.pl/zaloguj')
+        .open(param.url + 'zaloguj')
         .click('#login')
         .assert.numberOfElements('div.login_form_error', 2)
         .done();
