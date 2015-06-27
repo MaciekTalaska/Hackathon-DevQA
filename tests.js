@@ -36,20 +36,21 @@ module.exports = {
       .done();
   },
 
-  '0000278 - Cookie should have HttpOnly set': function(test) {
-    logToApplication(test)
-      .waitForElement('#head-top')
-      .assert
-          //.cookie("FrameProfil", "httpOnl")  
-          .exists('.header_admin')
-      .done();
-  },
+  //'0000278 - Cookie should have HttpOnly set': function(test) {
+  //  logToApplication(test)
+  //    .waitForElement('#head-top')
+  //    .assert
+  //        .cookie("FrameProfile", "httpOnly")  
+  //        //.exists('.header_admin')
+  //    .done();
+  //},
 
   '0000260 -  correct message when no login data was provided': function(test) {
     test
-      .open(param.url + 'zaloguj')
+      .open(param.url)
       .click('#login')
-      .assert.numberOfElements('div.login_form_error', 2) 
+      .waitForElement('.login_form_error')
+      .assert.numberOfElements('.login_form_error', 2) 
       .done();
   },
 
