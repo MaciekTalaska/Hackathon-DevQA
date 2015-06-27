@@ -14,10 +14,10 @@ var param = testarena;
 
 function logToApplication(test) {
   return test
-          .open(param.url)
-          .type('#email', param.login)
-          .type('#password', param.pass)
-          .click('#login')
+      .open(param.url)
+      .type('#email', param.login)
+      .type('#password', param.pass)
+      .click('#login')
 
 }
 
@@ -38,14 +38,17 @@ module.exports = {
 
   '	0000278 - Cookie should have HttpOnly set': function(test) {
     logToApplication(test)
-      .assert.cookie("FrameProfil", "httpOnl")  
+      .waitForElement('#head-top')
+      .assert
+          //.cookie("FrameProfil", "httpOnl")  
+          .exists('.header_admin')
       .done();
   },
   '	0000260 - When no login data was provided no incorrect data message should be visible': function(test) {
     test
-        .open(param.url + 'zaloguj')
-        .click('#login')
-        .assert.numberOfElements('div.login_form_error', 2)
-        .done();
+      .open(param.url + 'zaloguj')
+      .click('#login')
+      .assert.numberOfElements('div.login_form_error', 2) 
+      .done();
   }
 };
