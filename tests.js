@@ -27,11 +27,19 @@ module.exports = {
         .done();
   },
 
-  '	0000260 - when no login data was provided no incorrect data message should be visible': function(test) {
+  '	0000260 -  correct message when no login data was provided': function(test) {
       test
         .open('http://demo.testarena.pl/zaloguj')
         .click('#login')
         .assert.numberOfElements('div.login_form_error', 2)
+        .done();
+  },
+
+  '	0000280 - correct captcha message when no login data was provided': function(test) {
+      test
+        .open('http://demo.testarena.pl/odzyskiwanie_hasla')
+        .click('#recover')
+        .assert.text('div.login_table div.login_form_error').is('Proszę poprawnie uzupełnić pole captcha.')
         .done();
   }
 };
