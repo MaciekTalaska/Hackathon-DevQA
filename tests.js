@@ -1,4 +1,4 @@
-function logToApplication() {
+function logToApplication(test) {
   return test
           .open('http://demo.testarena.pl/')
           .type('#email', 'administrator@testarena.pl')
@@ -23,8 +23,9 @@ module.exports = {
   },
 
   '	0000278 - cookie should have HttpOnly set': function(test) {
-      logToApplication()
-        .done();
+      logToApplication(test)
+      .assert.cookie("FrameProfil", "httpOnl")  
+      .done();
   }
 
 };
