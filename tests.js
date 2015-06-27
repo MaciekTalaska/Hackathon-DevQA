@@ -52,9 +52,7 @@ module.exports = {
   //},
 
   '0000260 -  correct message when no login data was provided': function(test) {
-    test
-      .open(param.url)
-      .click('#login')
+    tryToLogWithoutFillFields(test)
       .waitForElement('.login_form_error')
       .assert.numberOfElements('.login_form_error', 2) 
       .done();
