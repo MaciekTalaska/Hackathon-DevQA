@@ -1,8 +1,22 @@
+var testarena = {
+   url: "http://demo.testarena.pl/",
+   login: "administrator@testarena.pl",
+   pass: "sumXQQ72$L"
+};
+
+var mrbuggy = {
+  url: "http://demo.testarena.pl/",
+  login: "administrator@testarena.pl",
+  pass: ""
+};
+
+var param = testarena;
+
 function logToApplication(test) {
   return test
-          .open('http://demo.testarena.pl/')
-          .type('#email', 'administrator@testarena.pl')
-          .type('#password', 'sumXQQ72$L')
+          .open(param.url)
+          .type('#email', param.login)
+          .type('#password', param.pass)
           .click('#login')
 
 }
