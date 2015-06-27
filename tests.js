@@ -1,8 +1,8 @@
 module.exports = {
-  'Page title is correct': function(test) {
+  'Password recovery page should allow user to ': function(test) {
     test
-      .open('http://google.com')
-      .assert.title().is('Google', 'It has title')
+      .open('http://demo.testarena.pl/odzyskaj_haslo')
+      .assert.attr('.remember_check > a', 'href', 'http://demo.testarena.pl/zaloguj')
       .done();
   }
 };
