@@ -23,9 +23,15 @@ module.exports = {
   },
 
   '	0000278 - cookie should have HttpOnly set': function(test) {
-      logToApplication(test)
+    logToApplication(test)
       .assert.cookie("FrameProfil", "httpOnl")  
       .done();
+  },
+  '	0000260 - when no login data was provided no incorrect data message should be visible': function(test) {
+    test
+        .open('http://demo.testarena.pl/zaloguj')
+        .click('#login')
+        .assert.numberOfElements('div.login_form_error', 2)
+        .done();
   }
-
 };
