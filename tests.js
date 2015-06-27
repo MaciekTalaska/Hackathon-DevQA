@@ -36,12 +36,12 @@ module.exports = {
       .done();
   },
 
-  '	0000278 - cookie should have HttpOnly set': function(test) {
+  '	0000278 - Cookie should have HttpOnly set': function(test) {
     logToApplication(test)
       .assert.cookie("FrameProfil", "httpOnl")  
       .done();
   },
-  '	0000260 - when no login data was provided no incorrect data message should be visible': function(test) {
+  '	0000260 - When no login data was provided no incorrect data message should be visible': function(test) {
     test
         .open(param.url + 'zaloguj')
         .click('#login')
