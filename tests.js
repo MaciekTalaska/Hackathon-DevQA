@@ -21,6 +21,12 @@ function logToApplication(test) {
 
 }
 
+function tryToLogWithoutFillFields(test){
+  return test
+    .open(param.url)
+    .click('#login')
+}
+
 module.exports = {
   '0000290 - Password recovery page should allow user to ': function(test) {
     test
